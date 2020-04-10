@@ -9,7 +9,7 @@ class Task < ApplicationRecord
     validates :motouke, length: { maximum: 50}  # 元請け
 
     # カンマエラーチェック
-    validates :vali_not_including_comma         # エンドユーザー
+    validate :vali_not_including_comma         # エンドユーザー
 
     private
 
