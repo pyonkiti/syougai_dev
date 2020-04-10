@@ -1,0 +1,48 @@
+h1 障害情報の参照
+
+.nav.justify-content-end
+    = link_to '一覧', tasks_path, class: 'nav-link'
+table.table.table-hover
+    tbody
+        tr
+            th = Task.human_attribute_name(:id)
+            td = @task.id
+        tr
+            th = Task.human_attribute_name(:dantai_kbn)
+            td = @task.dantai_kbn
+        tr
+            th = Task.human_attribute_name(:enduser)
+            td = @task.enduser
+        tr
+            th = Task.human_attribute_name(:motouke)
+            td = @task.motouke
+        tr
+            th = Task.human_attribute_name(:naiyou)
+            td = simple_format(h(@task.naiyou), {}, sanitize: false, wapper_tag: "div")
+        tr
+            th = Task.human_attribute_name(:syubetu_kbn)
+            td = @task.syubetu_kbn
+        tr
+            th = Task.human_attribute_name(:renraku_d)
+            td = @task.renraku_d
+        tr
+            th = Task.human_attribute_name(:renraku_t)
+            td = @task.renraku_t
+        tr
+            th = Task.human_attribute_name(:sagyou_d)
+            td = @task.sagyou_d
+        tr
+            th = Task.human_attribute_name(:idou)
+            td = @task.idou
+        tr
+            th = Task.human_attribute_name(:taiou_cd)
+            td = @task.taiou_cd
+        tr
+            th = Task.human_attribute_name(:del_flg)
+            td = @task.del_flg
+    
+br
+= link_to '編集', edit_task_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @task, method: :delete, 
+                    data: { confirm: "削除します。よろしいですか？"}, 
+                    class: 'btn btn-danger'
